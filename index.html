@@ -6,12 +6,9 @@
     <title>Invila™ | Sovereign Industrial Water Infrastructure</title>
     
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Noto+Serif:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Noto+Serif:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
@@ -24,8 +21,7 @@
                         successGreen: '#10B981', surfaceNavy: '#0c1322', legacyRed: '#e11d48', inputBg: '#151b2b'
                     },
                     fontFamily: { 
-                        sans: ['Inter', 'sans-serif'],
-                        jakarta: ['Plus Jakarta Sans', 'sans-serif'] // Font khusus portfolio
+                        sans: ['Inter', 'sans-serif']
                     }
                 }
             }
@@ -34,7 +30,6 @@
 
     <style>
         body { background-color: #ffffff; font-family: 'Inter', sans-serif; overflow-x: hidden; min-height: 100dvh; scroll-behavior: smooth; }
-        #odometer { font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
         .hidden-element { display: none !important; }
         .bg-hero { background-image: url('air.jpg'); background-size: cover; background-position: center; background-attachment: scroll; }
         @media (min-width: 1024px) { .bg-hero { background-attachment: fixed; } }
@@ -51,15 +46,6 @@
         .client-logo-scroll { filter: grayscale(100%); opacity: 0.4; transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); flex-shrink: 0; object-fit: contain; }
         .client-logo-scroll:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
         @keyframes scroll { to { transform: translateX(-50%); } }
-
-        /* CSS KHUSUS PORTFOLIO SECTION */
-        .project-card { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(51, 65, 85, 0.5); }
-        .hero-gradient { background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.12), transparent), radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.08), transparent); }
-        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
-        .logo-frame { background: white; padding: 4px; border-radius: 8px; display: flex; align-items: center; justify-content: center; height: 36px; width: 36px; overflow: hidden; }
-        .logo-frame img { max-width: 100%; max-height: 100%; object-fit: contain; }
     </style>
 </head>
 <body class="antialiased text-black">
@@ -93,19 +79,40 @@
 
         <div id="contentOverlay" class="relative z-40 text-center w-full max-w-6xl hidden opacity-0">
             
-            <p class="font-black tracking-[0.3em] uppercase text-[9px] md:text-xs mb-4">
-                <span class="text-black">Annual</span> <span class="text-royalBlue">Verified Performance</span>
-            </p>
-            
-            <div class="mb-10 md:mb-14">
-                <span id="odometer" class="text-5xl md:text-[10rem] font-black leading-none text-black">79.150.000</span>
-                <span class="text-2xl md:text-5xl font-light text-royalBlue ml-1 italic lowercase">m³</span>
+            <div class="bg-[#020617] rounded-[2rem] p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.3)] mx-auto max-w-4xl border border-slate-800 mb-12">
                 
-                <p class="text-[10px] md:text-sm font-bold text-black/50 tracking-[0.15em] md:tracking-widest uppercase mt-4">
-                    Across Industrial, Municipal & Food Processing Facilities since 2006
-                </p>
+                <div class="flex justify-center mb-6">
+                    <div class="inline-flex items-center space-x-2 bg-blue-900/30 border border-blue-800/50 px-4 py-1.5 rounded-full">
+                        <i data-lucide="shield-check" class="w-3.5 h-3.5 text-blue-500"></i>
+                        <span class="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400">Verified Capacity</span>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl md:text-4xl font-black text-white mb-6 tracking-tight leading-tight uppercase text-center">
+                    Total Akumulasi Kapasitas<br class="hidden sm:block"> Pengolahan Terpasang
+                </h2>
+
+                <div class="flex flex-col items-center justify-center mb-6">
+                    <div class="flex items-baseline justify-center gap-2 md:gap-3">
+                        <span class="main-odometer-dark text-5xl sm:text-7xl md:text-[6.5rem] font-black text-white tabular-nums tracking-tighter" data-start="79150000" data-target="79154776">79.150.000</span>
+                        <span class="text-xl sm:text-3xl md:text-4xl font-bold text-blue-500">m³/Tahun</span>
+                    </div>
+                    
+                    <div class="mt-4 text-center">
+                        <p class="text-[9px] md:text-[11px] text-slate-300 font-bold uppercase tracking-[0.15em] leading-relaxed">
+                            Setara ± <span class="main-odometer-sub text-white tabular-nums" data-target="216862" data-decimals="1">0</span> m³/hari <br class="md:hidden">
+                            <span class="text-blue-500 ml-1">9 Khusus WTP Air Bersih (Diluar IPAL Medis)</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex justify-center mt-8">
+                    <button id="main-recalculate-btn" class="flex items-center space-x-2 bg-transparent hover:bg-blue-900/40 border border-slate-700 hover:border-blue-500/50 text-slate-400 hover:text-white px-6 py-2.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all active:scale-95 group">
+                        <i data-lucide="refresh-cw" class="w-4 h-4 group-hover:rotate-180 transition-transform"></i>
+                        <span>Recalculate</span>
+                    </button>
+                </div>
             </div>
-            
             <div class="max-w-4xl mx-auto mb-16 md:mb-24 text-center">
                 <p class="text-xl md:text-4xl font-light leading-snug text-black/90">
                     Bukan sekadar volume, ini adalah <strong class="font-black border-b-4 border-royalBlue">akumulasi risiko yang berhasil kami mitigasi</strong> selama dua dekade operasional. Sejak 2006, Invila™ telah menjadi mesin tak terlihat di balik operasional kepentingan publik dan berbagai industri di Indonesia. Hari ini, kami mengubah skala otoritas ini menjadi perisai finansial untuk EBITDA Anda.
@@ -131,60 +138,7 @@
                 <div class="max-w-4xl">
                     <h3 class="text-2xl md:text-6xl font-black tracking-tight text-black leading-[1.1] mb-8 noto-serif">Protecting your <span class="text-royalBlue">EBITDA</span> is our standard.</h3>
                     <p class="text-base md:text-2xl text-black/60 font-light max-w-2xl leading-relaxed mb-10">Bisnis Anda tumbuh tanpa hambatan <strong class="text-black/80">infrastruktur air bersih.</strong></p>
-                    
-                    <div id="portfolio-scroll-box" class="w-full h-[600px] md:h-[800px] border-2 border-black/10 rounded-2xl overflow-y-auto custom-scrollbar mt-8 bg-[#020617] text-[#f8fafc] font-jakarta relative scroll-smooth">
-                        
-                        <section class="hero-gradient py-8 md:py-20 px-4 text-center border-b border-slate-900 flex flex-col justify-center min-h-[400px]">
-                            <div class="max-w-5xl mx-auto w-full">
-                                <div class="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/20 px-2.5 py-1 rounded-full mb-3 md:mb-6">
-                                    <i data-lucide="shield-check" class="w-3 h-3 text-blue-500"></i>
-                                    <span class="text-[7px] md:text-[10px] font-black uppercase tracking-[0.2em] text-blue-400">Verified Capacity</span>
-                                </div>
-                                <h1 class="text-base md:text-5xl font-black text-white mb-2 md:mb-6 tracking-tight leading-tight uppercase">
-                                    Total Akumulasi Kapasitas <br class="hidden sm:block"> Pengolahan Terpasang
-                                </h1>
-                                <div class="flex flex-col items-center justify-center mb-4 md:mb-10">
-                                    <div class="flex items-baseline justify-center gap-1 md:gap-3">
-                                        <span class="text-4xl sm:text-6xl md:text-8xl font-black text-white tabular-nums port-odometer" data-start="79150000" data-target="79154776">79.150.000</span>
-                                        <span class="text-base sm:text-2xl md:text-4xl font-bold text-blue-500">m³/Tahun</span>
-                                    </div>
-                                    <div class="mt-2 md:mt-4 text-center">
-                                        <p class="text-[9px] md:text-sm text-slate-400 font-bold uppercase tracking-widest leading-relaxed">
-                                            Setara ± <span class="text-white port-odometer" data-target="216862" data-decimals="1">0</span> m³/hari <br class="md:hidden">
-                                            <span class="text-blue-500">9 Khusus WTP Air Bersih (Diluar IPAL Medis)</span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <button id="recalculate-btn" class="mx-auto flex items-center space-x-2 bg-blue-600/10 hover:bg-blue-600 border border-blue-500/50 text-blue-400 hover:text-white px-4 py-2 md:px-6 md:py-3 rounded-lg md:rounded-2xl text-[8px] md:text-xs font-black uppercase tracking-widest transition-all active:scale-95 group">
-                                    <i data-lucide="refresh-cw" class="w-3 h-3 md:w-4 md:h-4 group-hover:rotate-180 transition-transform"></i>
-                                    <span>Recalculate</span>
-                                </button>
-                            </div>
-                        </section>
-
-                        <section class="py-8 md:py-16 px-4 md:px-8 max-w-7xl mx-auto">
-                            <div class="flex items-center justify-between mb-6 md:mb-10">
-                                <div>
-                                    <h2 class="text-lg md:text-2xl font-black text-white uppercase tracking-tight">Pengalaman Proyek</h2>
-                                    <p class="text-slate-500 text-[9px] md:text-sm mt-0.5">Instalasi pengolahan di seluruh Indonesia.</p>
-                                </div>
-                                <div class="h-px flex-1 mx-4 md:mx-8 bg-slate-800"></div>
-                                <div class="flex items-center space-x-2 text-blue-500">
-                                    <i data-lucide="droplets" class="w-4 h-4"></i>
-                                    <span class="text-[8px] md:text-xs font-black uppercase tracking-widest">WTP & RECYCLE</span>
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6" id="project-container"></div>
-                        </section>
-
-                        <footer class="bg-black py-10 px-4 md:px-6 border-t border-slate-900 text-center">
-                            <div class="max-w-4xl mx-auto">
-                                <p class="text-[7px] md:text-[10px] font-black text-slate-700 uppercase tracking-[0.4em]">© 2026 INVILA TECHNOLOGY. ALL RIGHTS RESERVED.</p>
-                            </div>
-                        </footer>
-
-                    </div>
-                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -272,7 +226,6 @@
     </section>
 
     <section id="transparency-framework" class="bg-white py-24 md:py-32 px-6 border-t border-black/5 relative overflow-hidden fade-in-section">
-        
         <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-slate-50 to-transparent pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto relative z-10">
@@ -283,7 +236,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24">
-                
                 <div class="space-y-12">
                     <div class="border-b-2 border-black/10 pb-5 mb-10">
                         <h3 class="text-2xl md:text-3xl font-black text-mckNavy uppercase tracking-tighter noto-serif">Financial Clarity</h3>
@@ -345,7 +297,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             
             <div class="mt-20 md:mt-32 text-center border-t border-black/10 pt-16">
@@ -355,12 +306,10 @@
     </section>
 
     <section id="exclusivity-clause" class="bg-white py-20 md:py-32 px-6 border-t border-black/10 relative overflow-hidden fade-in-section">
-        
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-invilaGold/5 blur-[100px] pointer-events-none"></div>
 
         <div class="max-w-4xl mx-auto relative z-10">
             <div class="border border-black/10 bg-white p-8 md:p-16 rounded-3xl text-center shadow-[0_10px_40px_rgba(0,0,0,0.05)]">
-                
                 <div class="inline-flex items-center gap-3 bg-legacyRed/10 border border-legacyRed/20 text-legacyRed px-4 py-2 rounded-full mb-8">
                     <span class="w-2 h-2 rounded-full bg-legacyRed animate-pulse"></span>
                     <span class="text-[10px] md:text-xs font-black uppercase tracking-widest text-legacyRed">Kapasitas Eksekusi Terbatas</span>
@@ -371,12 +320,8 @@
                 </h2>
                 
                 <div class="text-base md:text-xl text-black/70 font-light leading-relaxed space-y-6 text-justify md:text-center">
-                    <p>
-                        Kami bukan vendor penyedia mesin massal. Model bisnis 100% <strong class="text-black font-bold italic">Zero-CapEx</strong> berarti <strong class="border-b border-invilaGold text-black">kami menanggung miliaran Rupiah di depan</strong> untuk memitigasi risiko pabrik Anda.
-                    </p>
-                    <p>
-                        Demi menjaga standar kualitas <i class="text-black/50">Zero-Downtime</i> dan fokus <i class="text-black/50">Engineering</i> yang absolut, sumber daya operasional dan pendanaan kami saat ini <strong class="text-black font-black">dikunci secara eksklusif hanya untuk mengeksekusi 2 (dua) proyek WaaS secara bersamaan.</strong>
-                    </p>
+                    <p>Kami bukan vendor penyedia mesin massal. Model bisnis 100% <strong class="text-black font-bold italic">Zero-CapEx</strong> berarti <strong class="border-b border-invilaGold text-black">kami menanggung miliaran Rupiah di depan</strong> untuk memitigasi risiko pabrik Anda.</p>
+                    <p>Demi menjaga standar kualitas <i class="text-black/50">Zero-Downtime</i> dan fokus <i class="text-black/50">Engineering</i> yang absolut, sumber daya operasional dan pendanaan kami saat ini <strong class="text-black font-black">dikunci secara eksklusif hanya untuk mengeksekusi 2 (dua) proyek WaaS secara bersamaan.</strong></p>
                 </div>
 
                 <div class="bg-slate-50 p-6 md:p-8 rounded-2xl border border-black/5 mt-10 text-left">
@@ -390,7 +335,7 @@
                 </div>
 
                 <div class="mt-12 flex flex-col sm:flex-row justify-center items-center gap-6">
-                    <a href="https://wa.me/6285219493322?text=Selamat%20%5Bpagi%2Fsiang%5D%2C%20Pak%20Irfon%20(Strategic%20Room).%0A%0AMenindaklanjuti%20informasi%20keterbatasan%20kuota%20eksekusi%20Invila%E2%84%A2%20kuartal%20ini%2C%20saya%20bermaksud%20mengamankan%20slot%20prioritas%20*Strategic%20Site%20Audit*%20untuk%20fasilitas%20kami%20terkait%20transisi%20model%20*Zero-CapEx*%20(WaaS).%0A%0ASebagai%20*baseline*%20kualifikasi%2C%20berikut%20data%20kami%3A%0A-%20Nama%3A%20%0A-%20Jabatan%3A%20(CEO%20%2F%20BOD%20%2F%20Plant%20Manager)%0A-%20Perusahaan%3A%20PT.%20%0A-%20Estimasi%20Debit%20(m%C2%B3%2Fhari)%3A%20%0A%0AMohon%20arahannya%20terkait%20prosedur%20penerbitan%20LOI%20(Letter%20of%20Intent)%20dan%20ketersediaan%20waktu%20tim%20*Engineering*%20Bapak%20untuk%20visit%20ke%20lokasi%20kami.%20Terima%20kasih." target="_blank" class="w-full sm:w-auto bg-invilaGold text-white px-10 py-5 rounded-full text-xs font-black uppercase tracking-[0.2em] shadow-lg hover:bg-black hover:scale-105 active:scale-95 transition-all text-center">
+                    <a href="https://wa.me/6285219493322?text=Selamat..." target="_blank" class="w-full sm:w-auto bg-invilaGold text-white px-10 py-5 rounded-full text-xs font-black uppercase tracking-[0.2em] shadow-lg hover:bg-black hover:scale-105 active:scale-95 transition-all text-center">
                         Kunci Kuota Audit Anda →
                     </a>
                 </div>
@@ -404,7 +349,6 @@
 
     <section id="final-legacy" class="bg-white pt-28 pb-12 px-6 relative overflow-hidden fade-in-section border-t border-black/5">
         <div class="max-w-5xl mx-auto text-center relative z-10">
-            
             <div class="flex flex-col items-center justify-center mb-16 mt-10">
                  <h1 class="logo-text text-3xl md:text-5xl font-black text-black uppercase tracking-tighter noto-serif">INVILA<sup class="text-[12px] md:text-[18px] uppercase font-bold">tm</sup></h1>
                  <p class="text-[10px] md:text-xs font-bold text-invilaGold uppercase tracking-[0.6em] mt-2">Protecting The Core of Industry</p>
@@ -435,50 +379,67 @@
     </section>
 
     <script>
-        // LOGIKA AWAL (FADE IN DLL)
+        // INISIALISASI ICONS
+        lucide.createIcons();
+
+        // LOGIKA FADE IN
         document.addEventListener("DOMContentLoaded", function() {
             const faders = document.querySelectorAll('.fade-in-section');
-            const appearOptions = {
-                threshold: 0.02,
-                rootMargin: "0px 0px 0px 0px"
-            };
+            const appearOptions = { threshold: 0.02, rootMargin: "0px 0px 0px 0px" };
 
             const appearOnScroll = new IntersectionObserver(function(entries, observer) {
                 entries.forEach(entry => {
-                    if (!entry.isIntersecting) {
-                        return;
-                    } else {
+                    if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
                         observer.unobserve(entry.target);
                     }
                 });
             }, appearOptions);
 
-            faders.forEach(fader => {
-                appearOnScroll.observe(fader);
-            });
+            faders.forEach(fader => { appearOnScroll.observe(fader); });
         });
 
+        // LOGIKA ANIMASI ODOMETER UNIVERSAL
+        const animateOdometer = (el) => {
+            const target = parseFloat(el.getAttribute('data-target'));
+            const start = parseFloat(el.getAttribute('data-start') || 0);
+            const duration = 4000; // 4 Detik agar pas
+            const startTime = performance.now();
+            
+            const update = (now) => {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                const currentVal = start + (target - start) * easeOutQuart;
+                
+                if(el.hasAttribute('data-decimals')) {
+                    el.innerText = currentVal.toLocaleString('id-ID', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+                } else {
+                    el.innerText = Math.floor(currentVal).toLocaleString('id-ID');
+                }
+                if (progress < 1) requestAnimationFrame(update);
+            };
+            requestAnimationFrame(update);
+        };
+
+        // FUNGSI ANIMASI KETIKA HEADER MUNCUL
+        function triggerMainOdometer() {
+            document.querySelectorAll('.main-odometer-dark, .main-odometer-sub').forEach(odo => {
+                const startVal = parseFloat(odo.getAttribute('data-start') || 0);
+                if(odo.hasAttribute('data-decimals')) {
+                    odo.innerText = startVal.toLocaleString('id-ID', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+                } else {
+                    odo.innerText = startVal.toLocaleString('id-ID');
+                }
+                animateOdometer(odo);
+            });
+        }
+
+        // LOGIKA REVEAL HERO VIDEO -> WIDGET
         const heroVideo = document.getElementById('heroVideo');
         const heroImage = document.getElementById('heroImage');
         const contentOverlay = document.getElementById('contentOverlay');
-        const odometer = document.getElementById('odometer');
         
-        const proofVideo = document.getElementById('proofVideo');
-        const proofText = document.getElementById('proofText');
-        let proofTriggered = false;
-
-        function animateOdo(start, end, duration) {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                odometer.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString('id-ID');
-                if (progress < 1) window.requestAnimationFrame(step);
-            };
-            window.requestAnimationFrame(step);
-        }
-
         function reveal(isInstant = false) {
             if (!contentOverlay.classList.contains('hidden')) return;
             if (isInstant) {
@@ -487,7 +448,8 @@
                 heroImage.classList.add('visible');
                 contentOverlay.classList.remove('hidden');
                 contentOverlay.style.opacity = "1";
-                animateOdo(79150000, 79154776, 500);
+                triggerMainOdometer();
+                
                 const urlParams = new URLSearchParams(window.location.search);
                 if (urlParams.get('skipvideo') === 'true') {
                     setTimeout(() => document.getElementById('ebitda-anchor').scrollIntoView(), 600);
@@ -503,7 +465,7 @@
                     contentOverlay.classList.remove('hidden');
                     setTimeout(() => {
                         contentOverlay.style.opacity = "1";
-                        animateOdo(79150000, 79154776, 2000);
+                        triggerMainOdometer(); // Animasi angka saat konten muncul
                     }, 100);
                 }, 800);
             }
@@ -519,7 +481,19 @@
                 heroVideo.onended = () => reveal(false);
                 setTimeout(() => { if (contentOverlay.classList.contains('hidden')) reveal(true); }, 6000);
             }
-            
+
+            // Tombol Recalculate Odometer Utama (Dark Widget)
+            const mainRecalcBtn = document.getElementById('main-recalculate-btn');
+            if(mainRecalcBtn) {
+                mainRecalcBtn.addEventListener('click', () => {
+                    triggerMainOdometer();
+                });
+            }
+
+            // Video Proof KIW1
+            const proofVideo = document.getElementById('proofVideo');
+            const proofText = document.getElementById('proofText');
+            let proofTriggered = false;
             if(proofVideo && proofText) {
                 proofVideo.addEventListener('timeupdate', () => {
                     if (proofVideo.currentTime >= 15 && !proofTriggered) {
@@ -529,151 +503,17 @@
                 });
             }
 
+            // Smooth Scroll
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     const targetId = this.getAttribute('href');
                     if (targetId.startsWith('#')) {
                         e.preventDefault();
                         const targetElement = document.querySelector(targetId);
-                        if(targetElement) {
-                            targetElement.scrollIntoView({
-                                behavior: 'smooth'
-                            });
-                        }
+                        if(targetElement) { targetElement.scrollIntoView({ behavior: 'smooth' }); }
                     }
                 });
             });
-
-            // ==========================================
-            // LOGIKA PORTFOLIO NATIVE (MENGGANTIKAN IFRAME)
-            // ==========================================
-            const projectData = [
-                { no: 1, name: "Clarifier 6 PDAM Tirtanadi", loc: "Medan-Sunggal", client: "PDAM Tirtanadi", cap: 43200, lps: 500, year: "2013–2014", logo: "tirtanadi.png", type: "IPA" },
-                { no: 2, name: "Clarifier 1 PDAM Tirtanadi", loc: "Medan-Sunggal", client: "PDAM Tirtanadi", cap: 43200, lps: 500, year: "2013–2014", logo: "tirtanadi.png", type: "IPA" },
-                { no: 3, name: "WTP PDAM Tirta Asasta Legong", loc: "Depok", client: "PDAM", cap: 25920, lps: 300, year: "2016", logo: "tirta-asasta-depok.png", type: "WTP" },
-                { no: 4, name: "WTP PDAM Tirta Asasta Citayam", loc: "Depok", client: "PDAM", cap: 25920, lps: 300, year: "2016", logo: "tirta-asasta-depok.png", type: "WTP" },
-                { no: 5, name: "WTP Gunung Sari Petro Kimia", loc: "Surabaya", client: "PT Petro Kimia Gresik", cap: 71971, lps: 833, year: "2016", logo: "petrokimia-gresik.png", type: "WTP" },
-                { no: 6, name: "WTP KI Wijayakusuma", loc: "Semarang", client: "PT Indisi", cap: 4320, lps: 50, year: "2017–2018", logo: "kiw.png", type: "WTP" },
-                { no: 7, name: "IPAL-IPA Recycle Kievit", loc: "Salatiga", client: "PT Kievit Indonesia", cap: 259, lps: 3, year: "2017–2018", logo: "kievit.png", type: "RECYCLE" },
-                { no: 8, name: "WTP Patria Maritim Perkasa", loc: "Wijayakusuma", client: "PT PMP", cap: 2160, lps: 25, year: "2024", logo: "patria-maritim-perkasa.png", type: "WTP" },
-                { no: 9, name: "WTP KI Wijayakusuma Phase II", loc: "Semarang", client: "PT KIW", cap: 4320, lps: 50, year: "2026", logo: "kiw.png", type: "FUTURE" }
-            ];
-
-            const typeIcons = { IPA: 'droplets', WTP: 'factory', RECYCLE: 'refresh-ccw', FUTURE: 'cpu' };
-            const container = document.getElementById('project-container');
-            
-            if(container) {
-                projectData.forEach(p => {
-                    const card = document.createElement('div');
-                    card.className = "project-card p-4 md:p-6 rounded-[1.2rem] md:rounded-[1.5rem] flex flex-col justify-between";
-                    const fallbackHTML = `<i data-lucide='${typeIcons[p.type] || "factory"}' class='w-5 h-5 text-blue-500'></i>`;
-                    
-                    card.innerHTML = `
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <div class="logo-frame shadow-sm"><img src="${p.logo}" alt="${p.client}" onerror="this.parentElement.innerHTML=\`${fallbackHTML}\`"></div>
-                                <span class="text-[8px] font-mono text-slate-500">${p.year}</span>
-                            </div>
-                            <p class="text-[7px] md:text-[9px] font-black text-blue-400 uppercase tracking-widest mb-0.5">${p.client}</p>
-                            <h3 class="text-xs md:text-base font-bold text-white leading-tight mb-2 uppercase">${p.name}</h3>
-                            <p class="text-[8px] md:text-[10px] text-slate-500 mb-4 flex items-center">
-                                <i data-lucide="map-pin" class="w-2.5 h-2.5 mr-1"></i> ${p.loc}
-                            </p>
-                        </div>
-                        <div class="pt-3 border-t border-slate-800 flex justify-between items-end">
-                            <div>
-                                <p class="text-[7px] font-black text-slate-500 uppercase tracking-widest mb-0.5">Kapasitas</p>
-                                <div class="flex items-baseline space-x-1">
-                                    <span class="text-lg md:text-xl font-black text-white port-odometer" data-target="${p.cap}">0</span>
-                                    <span class="text-[8px] md:text-[9px] font-bold text-slate-500">m³/hari</span>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                 <div class="px-2 py-0.5 bg-slate-800 text-blue-500 rounded-full text-[7px] md:text-[9px] font-black uppercase tracking-tighter">
-                                    ${p.lps} LPS
-                                 </div>
-                            </div>
-                        </div>`;
-                    container.appendChild(card);
-                });
-                
-                // Refresh ikon khusus untuk elemen baru yang baru saja di-*append*
-                if(typeof lucide !== 'undefined') {
-                    lucide.createIcons();
-                }
-            }
-
-            // Animasi Odometer Khusus Portfolio
-            const animatePortOdometer = (el) => {
-                const target = parseFloat(el.getAttribute('data-target'));
-                const start = parseFloat(el.getAttribute('data-start') || 0);
-                const duration = 6000; 
-                const startTime = performance.now();
-                
-                const update = (now) => {
-                    const elapsed = now - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-                    const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-                    const currentVal = start + (target - start) * easeOutQuart;
-                    
-                    if(el.hasAttribute('data-decimals')) {
-                        el.innerText = currentVal.toLocaleString('id-ID', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
-                    } else {
-                        el.innerText = Math.floor(currentVal).toLocaleString('id-ID');
-                    }
-                    if (progress < 1) requestAnimationFrame(update);
-                };
-                requestAnimationFrame(update);
-            };
-
-            document.querySelectorAll('.port-odometer').forEach(odo => {
-                const startVal = parseFloat(odo.getAttribute('data-start') || 0);
-                if(odo.hasAttribute('data-decimals')) {
-                    odo.innerText = startVal.toLocaleString('id-ID', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
-                } else {
-                    odo.innerText = startVal.toLocaleString('id-ID');
-                }
-                animatePortOdometer(odo);
-            });
-
-            // Logika Auto Scroll khusus kotak Portfolio
-            const portfolioBox = document.getElementById('portfolio-scroll-box');
-            if(portfolioBox) {
-                let scrollInterval;
-                let isUserInteracting = false;
-
-                const startAutoScroll = () => {
-                    if (isUserInteracting) return;
-                    scrollInterval = setInterval(() => {
-                        portfolioBox.scrollBy(0, 1);
-                        if (portfolioBox.scrollTop + portfolioBox.clientHeight >= portfolioBox.scrollHeight - 1) {
-                            clearInterval(scrollInterval);
-                        }
-                    }, 30);
-                };
-
-                const stopAutoScroll = () => {
-                    isUserInteracting = true;
-                    clearInterval(scrollInterval);
-                };
-
-                portfolioBox.addEventListener('wheel', stopAutoScroll, { passive: true });
-                portfolioBox.addEventListener('touchstart', stopAutoScroll, { passive: true });
-                portfolioBox.addEventListener('mousedown', stopAutoScroll);
-                
-                // Mulai scroll setelah 4 detik (memberi waktu pengguna membaca header)
-                setTimeout(startAutoScroll, 4000);
-
-                const recalcBtn = document.getElementById('recalculate-btn');
-                if(recalcBtn) {
-                    recalcBtn.addEventListener('click', () => {
-                        stopAutoScroll();
-                        document.querySelectorAll('.port-odometer').forEach(odo => {
-                            animatePortOdometer(odo);
-                        });
-                    });
-                }
-            }
         };
     </script>
 </body>
